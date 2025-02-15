@@ -1,0 +1,11 @@
+{
+    "name": "sawam/hosting-center",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Oleksandr Mytro",
+            "email": "sawa.mitrio@gmail.com"
+        }
+    ],
+    "require": {}
+}
