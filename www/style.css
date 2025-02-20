@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 30vh auto;
+    padding: 50px;
+    background-color: #f1f1f1;
+    width: 300px;
+    border-radius: 20px;
+}
+
+.container > * {
+    display: block;
+    margin: 10px auto;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.container input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.container button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
