@@ -2,18 +2,37 @@ version: '3.8'
 
 services:
   web:
-    image: php:8.1-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: hosting-center-web
     ports:
       - "80:80"
     volumes:
       - ./www:/var/www/html
       - ./apache/vhost.conf:/etc/apache2/sites-available/000-default.conf
+      - ./clients:/var/www/clients    # локальная папка для клиентских данных
     depends_on:
       - db
     environment:
       - APACHE_RUN_USER=www-data
       - APACHE_RUN_GROUP=www-data
+
+  ftp:
+    image: stilliard/pure-ftpd
+    container_name: hosting-center-ftp
+    restart: always
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    environment:
+      PUBLICHOST: "localhost"
+      FTP_USER_NAME: ftpuser            # фиксированные данные для базового подключения (используются, если динамическое создание не реализовано полностью)
+      FTP_USER_PASS: ftppassword
+      FTP_USER_HOME: /home/ftpuser
+    volumes:
+      - ./ftpdata:/home/ftpuser
+      - ./clients:/var/www/clients     # общий том с клиентскими данными
 
   db:
     image: mariadb:10.5
@@ -29,27 +48,12 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
-  ftp:
-    image: stilliard/pure-ftpd
-    container_name: hosting-center-ftp
-    restart: always
-    ports:
-      - "21:21"
-      - "30000-30009:30000-30009"
-    environment:
-      PUBLICHOST: "localhost"
-      FTP_USER_NAME: ftpuser
-      FTP_USER_PASS: ftppassword
-      FTP_USER_HOME: /home/ftpuser
-    volumes:
-      - ./ftpdata:/home/ftpuser
-
   smtp:
     image: mailhog/mailhog
     container_name: hosting-center-smtp
     ports:
-      - "1025:1025"   # SMTP порт для отправки почты
-      - "8025:8025"   # веб-интерфейс для просмотра писем
+      - "1025:1025"   # SMTP порт
+      - "8025:8025"   # веб-интерфейс MailHog
 
 volumes:
   db_data:
