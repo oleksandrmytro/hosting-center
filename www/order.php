@@ -227,20 +227,20 @@ try {
     . "Your client folder is created at: " . $clientFolder . "\n\n"
     . "Thank you for using our hosting center!";
 
-    // $mail = new PHPMailer(true);
-    // try {
-    //     $mail->isSMTP();
-    //     $mail->Host = 'smtp';  // имя сервиса SMTP из docker-compose
-    //     $mail->Port = 1025;
-    //     $mail->SMTPAuth = false;
-    //     $mail->setFrom('no-reply@hostingcenter.com', 'Hosting Center');
-    //     $mail->addAddress($email);
-    //     $mail->Subject = 'Your Hosting Account Details';
-    //     $mail->Body    = $emailContent;
-    //     $mail->send();
-    // } catch (Exception $e) {
-    //     error_log("Mailer Error: " . $mail->ErrorInfo);
-    // }
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp';  // имя сервиса SMTP из docker-compose
+        $mail->Port = 1025;
+        $mail->SMTPAuth = false;
+        $mail->setFrom('no-reply@hostingcenter.com', 'Hosting Center');
+        $mail->addAddress($email);
+        $mail->Subject = 'Your Hosting Account Details';
+        $mail->Body    = $emailContent;
+        $mail->send();
+    } catch (Exception $e) {
+        error_log("Mailer Error: " . $mail->ErrorInfo);
+    }
 
 
     // Записываем письмо в лог-файл для тестирования (в дальнейшем можно интегрировать отправку email через SMTP)

@@ -14,6 +14,7 @@ services:
       - ./apache/vhost.conf:/etc/apache2/sites-available/000-default.conf
       - ./clients:/var/www/clients    # локальная папка для клиентских данных
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./domains:/domains 
     depends_on:
       - db
     environment:
