@@ -1,4 +1,7 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require __DIR__ . '/../vendor/autoload.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -53,8 +56,8 @@ $db_password  = generateRandomString(8);
 // Подключение к базе данных (параметры берутся из docker-compose)
 $host = 'db';
 $dbname = 'mojafirma';
-$db_user = 'mojafirma_user';
-$db_pass = 'password';
+$db_user = 'root';
+$db_pass = 'rootpassword';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $db_user, $db_pass);
@@ -63,6 +66,10 @@ try {
     // Вставляем нового пользователя с данными для FTP и базы данных
     $stmt = $pdo->prepare("INSERT INTO users (email, domain, allocated_ip, ftp_username, ftp_password, db_username, db_password) 
                            VALUES (:email, :domain, :allocated_ip, :ftp_username, :ftp_password, :db_username, :db_password)");
+    // Создаем пользователя базы данных
+    $pdo->exec("CREATE USER '$db_username'@'%' IDENTIFIED BY '$db_password'");
+    $pdo->exec("GRANT ALL PRIVILEGES ON *.* TO '$db_username'@'%' WITH GRANT OPTION");
+
     $stmt->execute([
         ':email'         => $email,
         ':domain'        => $domain,
@@ -72,6 +79,15 @@ try {
         ':db_username'   => $db_username,
         ':db_password'   => $db_password
     ]);
+
+    // Создаем FTP-пользователя в контейнере pure-ftpd.
+    // Важно: убедитесь, что в FTP-контейнере существует базовый пользователь (например, ftpuser) или настройте команду под вашу конфигурацию.
+    $ftpCmd = "docker exec hosting-center-ftp pure-pw useradd {$ftp_username} -u ftpuser -d /var/www/clients/{$domain} -m";
+    exec($ftpCmd, $output1, $ret1);
+    // Обновляем базу данных FTP (пересобираем виртуальную базу)
+    $ftpCmd2 = "docker exec hosting-center-ftp pure-pw mkdb /etc/pure-ftpd/pureftpd.pdb";
+    exec($ftpCmd2, $output2, $ret2);
+
 
     // Создание отдельной папки для клиента
     $clientFolder = "/var/www/clients/" . $domain;
@@ -98,6 +114,21 @@ try {
     . "    Password: $db_password\n\n"
     . "Your client folder is created at: " . $clientFolder . "\n\n"
     . "Thank you for using our hosting center!";
+
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp';  // имя сервиса SMTP из docker-compose
+        $mail->Port = 1025;
+        $mail->SMTPAuth = false;
+        $mail->setFrom('no-reply@hostingcenter.com', 'Hosting Center');
+        $mail->addAddress($email);
+        $mail->Subject = 'Your Hosting Account Details';
+        $mail->Body    = $emailContent;
+        $mail->send();
+    } catch (Exception $e) {
+        error_log("Mailer Error: " . $mail->ErrorInfo);
+    }
 
 
     // Записываем письмо в лог-файл для тестирования (в дальнейшем можно интегрировать отправку email через SMTP)

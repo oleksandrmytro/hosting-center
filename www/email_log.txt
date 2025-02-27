@@ -1,0 +1,44 @@
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sasha@gmail.com
+Domain: sashaloh.com
+Allocated IP: 192.168.100.17
+
+FTP Access:
+    Server: ftp.sashaloh.com
+    Username: ftp_zjX1L
+    Password: 4hFbBhS6
+
+Database Access:
+    Server: db.sashaloh.com
+    Username: db_IdVvR
+    Password: S3WMpH8y
+
+Your client folder is created at: /var/www/clients/sashaloh.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: aronov.phone@gmail.com
+Domain: aloalo.com
+Allocated IP: 192.168.100.37
+
+FTP Access:
+    Server: ftp.aloalo.com
+    Username: ftp_0FCXM
+    Password: Ihs6aJAq
+
+Database Access:
+    Server: db.aloalo.com
+    Username: db_GnZaz
+    Password: pi1o9cS8
+
+Your client folder is created at: /var/www/clients/aloalo.com
+
+Thank you for using our hosting center!
+
