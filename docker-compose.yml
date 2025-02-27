@@ -11,7 +11,8 @@ services:
     volumes:
       - ./www:/var/www/html
       - ./apache/vhost.conf:/etc/apache2/sites-available/000-default.conf
-      - ./clients:/var/www/clients    # локальная папка для клиентских данных
+      - ./clients:/var/www/clients
+      - ./domains:/domains    # New shared volume for domain registration
     depends_on:
       - db
     environment:

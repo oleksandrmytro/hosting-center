@@ -1,0 +1,132 @@
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: asd@asd.com
+Domain: asdasdasd.com
+Allocated IP: 192.168.100.103
+
+FTP Access:
+    Server: ftp.asdasdasd.com
+    Username: ftp_j0ioK
+    Password: fZPtmH7e
+
+Database Access:
+    Server: db.asdasdasd.com
+    Username: db_qMEli
+    Password: Ps32LRXr
+
+Your client folder is created at: /var/www/clients/asdasdasd.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: SanyaSiggmaGucci.com
+Allocated IP: 192.168.100.60
+
+FTP Access:
+    Server: ftp.SanyaSiggmaGucci.com
+    Username: ftp_CBg9F
+    Password: YS5AN2Jx
+
+Database Access:
+    Server: db.SanyaSiggmaGucci.com
+    Username: db_fqIKD
+    Password: kQy8ynZK
+
+Your client folder is created at: /var/www/clients/SanyaSiggmaGucci.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: SanyaGucci.com
+Allocated IP: 192.168.100.34
+
+FTP Access:
+    Server: ftp.SanyaGucci.com
+    Username: ftp_AaA5g
+    Password: cH7GE70J
+
+Database Access:
+    Server: db.SanyaGucci.com
+    Username: db_L3x7z
+    Password: GCRCvm87
+
+Your client folder is created at: /var/www/clients/SanyaGucci.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: sanya.com
+Allocated IP: 127.0.0.4
+
+FTP Access:
+    Server: ftp.sanya.com
+    Username: ftp_ZH7Mk
+    Password: G8tkshbz
+
+Database Access:
+    Server: db.sanya.com
+    Username: db_4Rvfj
+    Password: QlggGPaq
+
+Your client folder is created at: /var/www/clients/sanya.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: aronov.phone@gmail.com
+Domain: aronov.tv
+Allocated IP: 127.0.0.5
+
+FTP Access:
+    Server: ftp.aronov.tv
+    Username: ftp_SJYg7
+    Password: Sn0t5Nhe
+
+Database Access:
+    Server: db.aronov.tv
+    Username: db_FcltS
+    Password: mL3QjcCV
+
+Your client folder is created at: /var/www/clients/aronov.tv
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: st69631@upce.cz
+Domain: kakashka.com
+Allocated IP: 127.0.0.2
+
+FTP Access:
+    Server: ftp.kakashka.com
+    Username: ftp_vnmvF
+    Password: 88t6Rim8
+
+Database Access:
+    Server: db.kakashka.com
+    Username: db_v6JUf
+    Password: GiXuB0LV
+
+Your client folder is created at: /var/www/clients/kakashka.com
+
+Thank you for using our hosting center!
+
