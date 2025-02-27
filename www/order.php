@@ -189,16 +189,21 @@ try {
     <div class=\"container\">
         <div class=\"header\">
             <h1>Welcome to $domain!</h1>
-            <p>Your website is ready to be customized</p>
+            <p>Thank you for using our services!</p>
         </div>
         
+        <p>This is your new website hosted on IP: <span class=\"ip\">$allocated_ip</span></p>
         <div class=\"info-box\">
-            <p>This is your new website hosted on IP: <span class=\"ip\">$allocated_ip</span></p>
-            <p>Site created at: " . date('Y-m-d H:i:s') . "</p>
+            <p>Site created at: <span class=\"ip\">" . date('Y-m-d H:i:s') . "</span></p>
+            <p>Email: <span class=\"ip\">$email</span></p>
+            <p><b>FTP Access:</b></p>
+            <p>Username: <span class=\"ip\">$ftp_username</span></p>
+            <p>Password: <span class=\"ip\">$ftp_password</span></p>
+            <p><b>Database Access:</b></p>
+            <p>Username: <span class=\"ip\">$db_username</span></p>
+            <p>Password: <span class=\"ip\">$db_password</span></p>
         </div>
-        
-        <p>You can now start building your website by uploading your files via FTP or by using our control panel.</p>
-        <p>If you need any assistance, don't hesitate to contact our support team.</p>
+        <p>Your client folder is created at: <span class=\"ip\">$clientFolder</span></p>
         
         <div class=\"footer\">
             <p>&copy; " . date('Y') . " $domain | Powered by Hosting Center</p>
@@ -217,11 +222,9 @@ try {
     . "Domain: $domain\n"
     . "Allocated IP: $allocated_ip\n\n"
     . "FTP Access:\n"
-    . "    Server: ftp.$domain\n"
     . "    Username: $ftp_username\n"
     . "    Password: $ftp_password\n\n"
     . "Database Access:\n"
-    . "    Server: db.$domain\n"
     . "    Username: $db_username\n"
     . "    Password: $db_password\n\n"
     . "Your client folder is created at: " . $clientFolder . "\n\n"
