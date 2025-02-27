@@ -8,7 +8,11 @@
 
     или если есть git bash можете в папке нажать ПКМ и там будет открыть git bash в этой папке
 
-3) Запустите контейнеры 
+3) Установить PHPMailer. В корне проекта в консоли прописать
+
+        composer require phpmailer/phpmailer
+
+4) Запустите контейнеры 
 
         docker-compose build
         docker-compose up -d
@@ -19,7 +23,7 @@
 
         docker-compose down
 
-4) Чтобы затестить работает ли все
+5) Чтобы затестить работает ли все
 
     Apache:
 
