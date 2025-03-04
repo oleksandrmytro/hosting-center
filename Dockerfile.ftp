@@ -1,0 +1,15 @@
+# Используем официальный образ pure-ftpd как базовый
+FROM stilliard/pure-ftpd
+
+# Устанавливаем MySQL клиент и expect (если потребуется) и Perl
+RUN apt-get update && apt-get install -y default-mysql-client expect perl
+
+# Копируем скрипты в контейнер
+COPY update_ftp_users.sh /usr/local/bin/update_ftp_users.sh
+COPY entrypoint.sh /entrypoint.sh
+
+# Делаем скрипты исполняемыми
+RUN chmod +x /usr/local/bin/update_ftp_users.sh /entrypoint.sh
+
+# Устанавливаем точку входа
+ENTRYPOINT ["/entrypoint.sh"]

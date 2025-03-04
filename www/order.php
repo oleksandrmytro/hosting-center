@@ -14,7 +14,7 @@ function generateRandomString($length = 8) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
-    for ($i = 0; $length > $i; $i++) {
+    for ($i = 0; $i < $length; $i++) {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
     return $randomString;
@@ -44,23 +44,16 @@ if (strpos($domain, '.') === false) {
     exit;
 }
 
-// Логіка для IP-адресації
-// Використовуємо фіксований діапазон 127.0.0.X, починаючи з 2
-// Знаходимо перше вільне IP шляхом перевірки бази даних
+// Функция для поиска свободного IP в диапазоне 127.0.0.X, начиная с 2
 function getNextAvailableIp($pdo) {
-    // Отримуємо всі вже використані IP з бази
     $stmt = $pdo->query("SELECT allocated_ip FROM users WHERE allocated_ip LIKE '127.0.0.%'");
     $usedIps = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    
-    // Шукаємо перше вільне IP
     for ($i = 2; $i < 255; $i++) {
         $ip = "127.0.0.$i";
         if (!in_array($ip, $usedIps)) {
             return $ip;
         }
     }
-    
-    // Якщо всі зайняті - повторно використовуємо останній
     return "127.0.0.254";
 }
 
@@ -74,7 +67,7 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Отримуємо наступний вільний IP
+    // Получаем следующий свободный IP
     $allocated_ip = getNextAvailableIp($pdo);
 
     // Генерация учетных данных для FTP и базы данных
@@ -83,54 +76,45 @@ try {
     $db_username  = "db_" . generateRandomString(5);
     $db_password  = generateRandomString(8);
 
-    // Вставляем нового пользователя с данными для FTP и базы данных
+    // Вставляем нового пользователя в базу данных
     $stmt = $pdo->prepare("INSERT INTO users (email, domain, allocated_ip, ftp_username, ftp_password, db_username, db_password) 
                            VALUES (:email, :domain, :allocated_ip, :ftp_username, :ftp_password, :db_username, :db_password)");
-    // Создаем пользователя базы данных
+    // Создаем пользователя БД
     $pdo->exec("CREATE USER '$db_username'@'%' IDENTIFIED BY '$db_password'");
     $pdo->exec("GRANT ALL PRIVILEGES ON *.* TO '$db_username'@'%' WITH GRANT OPTION");
-
     $stmt->execute([
         ':email'         => $email,
         ':domain'        => $domain,
-        ':allocated_ip'  => $allocated_ip,  // Тепер це 127.0.0.X
+        ':allocated_ip'  => $allocated_ip,
         ':ftp_username'  => $ftp_username,
         ':ftp_password'  => $ftp_password,
         ':db_username'   => $db_username,
         ':db_password'   => $db_password
     ]);
 
-    // Создаем FTP-пользователя в контейнере pure-ftpd.
-    // Важно: убедитесь, что в FTP-контейнере существует базовый пользователь (например, ftpuser) или настройте команду под вашу конфигурацию.
+    // Создаем FTP-пользователя в контейнере pure-ftpd
     $ftpCmd = "docker exec hosting-center-ftp pure-pw useradd {$ftp_username} -u ftpuser -d /var/www/clients/{$domain} -m";
     exec($ftpCmd, $output1, $ret1);
-    // Обновляем базу данных FTP (пересобираем виртуальную базу)
-    $ftpCmd2 = "docker exec hosting-center-ftp pure-pw mkdb /etc/pure-ftpd/pureftpd.pdb";
+    // Обновляем бинарную базу пользователей pure-ftpd, явно указывая источник данных
+    $ftpCmd2 = "docker exec hosting-center-ftp pure-pw mkdb /etc/pure-ftpd/pureftpd.pdb -f /etc/pure-ftpd/pureftpd.passwd";
     exec($ftpCmd2, $output2, $ret2);
 
-
-    // Создание отдельной папки для клиента
+    // Создаем клиентскую папку через FTP-контейнер, чтобы права были правильными
     $clientFolder = "/var/www/clients/" . $domain;
-    if (!file_exists($clientFolder)) {
-        if (!mkdir($clientFolder, 0755, true)) {
-            // Если создать папку не удалось, можно залогировать ошибку
-            error_log("Failed to create client folder: " . $clientFolder);
-        }
-    }
-    
-    // Створюємо додаткову папку для доступу за IP
+    shell_exec("docker exec hosting-center-ftp mkdir -p " . escapeshellarg($clientFolder));
+    shell_exec("docker exec hosting-center-ftp chown -R ftpuser:ftpgroup " . escapeshellarg($clientFolder));
+
+    // Создаем символьную ссылку для доступа по выделенному IP
     $ipFolder = "/var/www/clients/" . $allocated_ip;
     if (!file_exists($ipFolder)) {
         if (!symlink($clientFolder, $ipFolder)) {
             error_log("Failed to create symlink from IP to client folder: $ipFolder -> $clientFolder");
         }
     }
-    
-    // Створюємо унікальну сторінку для домену з випадковим кольором
+
+    // Генерируем HTML-страницу для клиента
     $colors = ['#4CAF50', '#2196F3', '#f44336', '#FF9800', '#9C27B0', '#3F51B5'];
     $randomColor = $colors[array_rand($colors)];
-    
-    // Генеруємо випадковий фон
     $bgPattern = rand(1, 5);
     
     $indexHtml = "<!DOCTYPE html>
@@ -191,7 +175,6 @@ try {
             <h1>Welcome to $domain!</h1>
             <p>Thank you for using our services!</p>
         </div>
-        
         <p>This is your new website hosted on IP: <span class=\"ip\">$allocated_ip</span></p>
         <div class=\"info-box\">
             <p>Site created at: <span class=\"ip\">" . date('Y-m-d H:i:s') . "</span></p>
@@ -204,7 +187,6 @@ try {
             <p>Password: <span class=\"ip\">$db_password</span></p>
         </div>
         <p>Your client folder is created at: <span class=\"ip\">$clientFolder</span></p>
-        
         <div class=\"footer\">
             <p>&copy; " . date('Y') . " $domain | Powered by Hosting Center</p>
         </div>
@@ -212,8 +194,16 @@ try {
 </body>
 </html>";
 
-    // Створюємо індексний файл для клієнта
-    file_put_contents($clientFolder . "/index.html", $indexHtml);
+    // Перед записью через PHP проверяем, существует ли клиентская папка (на случай, если docker exec не сработал)
+    if (!is_dir($clientFolder)) {
+        mkdir($clientFolder, 0777, true);
+    }
+    // Пытаемся записать индексный файл в клиентской папке
+    if (file_put_contents($clientFolder . "/index.html", $indexHtml) === false) {
+        error_log("Failed to write index.html in $clientFolder");
+    }
+    // После записи файла, снова обновляем права через FTP-контейнер
+    shell_exec("docker exec hosting-center-ftp chown -R ftpuser:ftpgroup " . escapeshellarg($clientFolder));
 
     // Формируем контент письма с данными для подключения
     $emailContent = "Hello!\n\n"
@@ -233,7 +223,7 @@ try {
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
-        $mail->Host = 'smtp';  // имя сервиса SMTP из docker-compose
+        $mail->Host = 'smtp';
         $mail->Port = 1025;
         $mail->SMTPAuth = false;
         $mail->setFrom('no-reply@hostingcenter.com', 'Hosting Center');
@@ -245,22 +235,17 @@ try {
         error_log("Mailer Error: " . $mail->ErrorInfo);
     }
 
-
-    // Записываем письмо в лог-файл для тестирования (в дальнейшем можно интегрировать отправку email через SMTP)
     file_put_contents("email_log.txt", $emailContent . "\n\n", FILE_APPEND);
 
-    // Write domain to the shared domains file for host processing
+    // Записываем данные домена в общий файл для обработки хостом
     $domainData = [
         'domain' => $domain,
         'ip' => $allocated_ip,
         'timestamp' => time()
     ];
     
-    file_put_contents("/domains/pending_domains.json", 
-        json_encode($domainData) . "\n", 
-        FILE_APPEND);
-    
-    chmod("/domains/pending_domains.json", 0666); // Ensure it's writable by host script
+    file_put_contents("/domains/pending_domains.json", json_encode($domainData) . "\n", FILE_APPEND);
+    chmod("/domains/pending_domains.json", 0666);
 
     echo json_encode([
         "success" => true,

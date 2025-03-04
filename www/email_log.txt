@@ -1,0 +1,660 @@
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sasha@gmail.com
+Domain: sasha2004.com
+Allocated IP: 127.0.0.2
+
+FTP Access:
+    Username: ftp_BAFcC
+    Password: 9KqcKbkW
+
+Database Access:
+    Username: db_nIdnT
+    Password: KdkwDQiU
+
+Your client folder is created at: /var/www/clients/sasha2004.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sasha@gmail.com
+Domain: shs.com
+Allocated IP: 127.0.0.2
+
+FTP Access:
+    Username: ftp_9056O
+    Password: uOsMuW52
+
+Database Access:
+    Username: db_ERo5D
+    Password: ALXLJIbT
+
+Your client folder is created at: /var/www/clients/shs.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sasha@gmail.com
+Domain: sasha111.com
+Allocated IP: 127.0.0.3
+
+FTP Access:
+    Username: ftp_1SFT6
+    Password: hNXJZpuz
+
+Database Access:
+    Username: db_fq392
+    Password: seW3Lbnz
+
+Your client folder is created at: /var/www/clients/sasha111.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sasha@gmail.com
+Domain: sasha2004.com
+Allocated IP: 127.0.0.2
+
+FTP Access:
+    Username: ftp_kQOjf
+    Password: VDNagvTB
+
+Database Access:
+    Username: db_WCAdU
+    Password: IvAKKuZ7
+
+Your client folder is created at: /var/www/clients/sasha2004.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: aronov.phone@gmail.com
+Domain: 123123.com
+Allocated IP: 127.0.0.3
+
+FTP Access:
+    Username: ftp_RFRy1
+    Password: NV3cqfNZ
+
+Database Access:
+    Username: db_Q2Rp6
+    Password: MRz8fmbd
+
+Your client folder is created at: /var/www/clients/123123.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: aronov.phone@gmail.com
+Domain: sasa.ua
+Allocated IP: 127.0.0.4
+
+FTP Access:
+    Username: ftp_RYLg3
+    Password: 0uYSa326
+
+Database Access:
+    Username: db_2fJZe
+    Password: ABgiIIn6
+
+Your client folder is created at: /var/www/clients/sasa.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sasha@gmail.com
+Domain: shs228.com
+Allocated IP: 127.0.0.2
+
+FTP Access:
+    Username: ftp_bhsoV
+    Password: wiCxe5PM
+
+Database Access:
+    Username: db_gG9eH
+    Password: RxaSjwp3
+
+Your client folder is created at: /var/www/clients/shs228.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: aronov.phone@gmail.com
+Domain: shs1337.com
+Allocated IP: 127.0.0.3
+
+FTP Access:
+    Username: ftp_0lMok
+    Password: T3qLnLCW
+
+Database Access:
+    Username: db_vCmrK
+    Password: DkPsLN61
+
+Your client folder is created at: /var/www/clients/shs1337.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sir.strel@gmail.com
+Domain: and.ua
+Allocated IP: 127.0.0.4
+
+FTP Access:
+    Username: ftp_jeOLp
+    Password: GT2JTC6t
+
+Database Access:
+    Username: db_rPVs9
+    Password: hu421WMg
+
+Your client folder is created at: /var/www/clients/and.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sasha@gmail.com
+Domain: 123123123.ua
+Allocated IP: 127.0.0.5
+
+FTP Access:
+    Username: ftp_m0fA4
+    Password: AolFp7kU
+
+Database Access:
+    Username: db_MeXGB
+    Password: LbF8aUIQ
+
+Your client folder is created at: /var/www/clients/123123123.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: oleksandr.aronov@gmail.com
+Domain: stud123.ua
+Allocated IP: 127.0.0.6
+
+FTP Access:
+    Username: ftp_hExwu
+    Password: 0ZmU9Hw7
+
+Database Access:
+    Username: db_sVhQl
+    Password: oTfoYKYD
+
+Your client folder is created at: /var/www/clients/stud123.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: aye@aye.com
+Domain: ayeaye.ua
+Allocated IP: 127.0.0.7
+
+FTP Access:
+    Username: ftp_b9xpG
+    Password: sPyx9AeI
+
+Database Access:
+    Username: db_VWXZB
+    Password: AdCxzN16
+
+Your client folder is created at: /var/www/clients/ayeaye.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: 123123@mail.ru
+Domain: 123321.com
+Allocated IP: 127.0.0.8
+
+FTP Access:
+    Username: ftp_rwIDN
+    Password: CiQDcB2w
+
+Database Access:
+    Username: db_zdvMh
+    Password: zGQdq5aG
+
+Your client folder is created at: /var/www/clients/123321.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: 1231234@mail.ru
+Domain: 123321123.com
+Allocated IP: 127.0.0.9
+
+FTP Access:
+    Username: ftp_pZlJh
+    Password: Gh7OqoZA
+
+Database Access:
+    Username: db_ZTZxe
+    Password: LBD4Iw27
+
+Your client folder is created at: /var/www/clients/123321123.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: 111@mail.ua
+Domain: 111222.ua
+Allocated IP: 127.0.0.10
+
+FTP Access:
+    Username: ftp_6KlyH
+    Password: uatZjoQY
+
+Database Access:
+    Username: db_nH5K5
+    Password: dC1LfdDJ
+
+Your client folder is created at: /var/www/clients/111222.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: 123123@email.ua
+Domain: 321321.ua
+Allocated IP: 127.0.0.11
+
+FTP Access:
+    Username: ftp_d0Dk0
+    Password: k3VoZwcb
+
+Database Access:
+    Username: db_oLIPU
+    Password: QrxSbixm
+
+Your client folder is created at: /var/www/clients/321321.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty@mail.ru
+Domain: qwerty.ua
+Allocated IP: 127.0.0.12
+
+FTP Access:
+    Username: ftp_NTLx0
+    Password: qQcjSEq1
+
+Database Access:
+    Username: db_WFyhR
+    Password: yEDKF5QK
+
+Your client folder is created at: /var/www/clients/qwerty.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty1@mail.ru
+Domain: qwerty1.ua
+Allocated IP: 127.0.0.13
+
+FTP Access:
+    Username: ftp_w7TWt
+    Password: YtXMtXWx
+
+Database Access:
+    Username: db_DkQ7i
+    Password: akciL4bK
+
+Your client folder is created at: /var/www/clients/qwerty1.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty2@mail.ru
+Domain: qwerty2.ua
+Allocated IP: 127.0.0.14
+
+FTP Access:
+    Username: ftp_3ezis
+    Password: eDwf0k5O
+
+Database Access:
+    Username: db_xnacZ
+    Password: TKnyGW3j
+
+Your client folder is created at: /var/www/clients/qwerty2.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty3@mail.ru
+Domain: qwerty3.ua
+Allocated IP: 127.0.0.15
+
+FTP Access:
+    Username: ftp_z6a3G
+    Password: OXUXsW9y
+
+Database Access:
+    Username: db_LbLSG
+    Password: 0z1Ferwj
+
+Your client folder is created at: /var/www/clients/qwerty3.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty4@mail.ru
+Domain: qwerty4.ua
+Allocated IP: 127.0.0.16
+
+FTP Access:
+    Username: ftp_WNDPL
+    Password: JyaYNgmL
+
+Database Access:
+    Username: db_HJQSH
+    Password: Te9ULLCT
+
+Your client folder is created at: /var/www/clients/qwerty4.ua
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty5@gmail.com
+Domain: qwerty5.com
+Allocated IP: 127.0.0.17
+
+FTP Access:
+    Username: ftp_3lC6N
+    Password: F61OUwmX
+
+Database Access:
+    Username: db_YgqDA
+    Password: r4rBkliV
+
+Your client folder is created at: /var/www/clients/qwerty5.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty6@gmail.com
+Domain: qwerty6.com
+Allocated IP: 127.0.0.18
+
+FTP Access:
+    Username: ftp_4PiG3
+    Password: T1TeiTNV
+
+Database Access:
+    Username: db_5hQ8p
+    Password: jE7woQsy
+
+Your client folder is created at: /var/www/clients/qwerty6.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty7@gmail.com
+Domain: qwerty7.com
+Allocated IP: 127.0.0.19
+
+FTP Access:
+    Username: ftp_E1R2a
+    Password: 9QyQ0Axe
+
+Database Access:
+    Username: db_38Lsl
+    Password: 1FDTbPqe
+
+Your client folder is created at: /var/www/clients/qwerty7.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty8@gmail.com
+Domain: qwerty8.com
+Allocated IP: 127.0.0.20
+
+FTP Access:
+    Username: ftp_sbnFj
+    Password: iAMbpEQZ
+
+Database Access:
+    Username: db_2oIN4
+    Password: NgtigcPX
+
+Your client folder is created at: /var/www/clients/qwerty8.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty9@gmail.com
+Domain: qwerty9.com
+Allocated IP: 127.0.0.21
+
+FTP Access:
+    Username: ftp_LDzps
+    Password: RfVJGCBh
+
+Database Access:
+    Username: db_aSM79
+    Password: 1a0p5DIW
+
+Your client folder is created at: /var/www/clients/qwerty9.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty10@gmail.com
+Domain: qwerty10.com
+Allocated IP: 127.0.0.22
+
+FTP Access:
+    Username: ftp_qceY5
+    Password: OC9FLA13
+
+Database Access:
+    Username: db_IGQ4h
+    Password: VIUNgKmL
+
+Your client folder is created at: /var/www/clients/qwerty10.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: qwerty11@gmail.com
+Domain: qwerty11.com
+Allocated IP: 127.0.0.23
+
+FTP Access:
+    Username: ftp_xlg3p
+    Password: m4zd1sO1
+
+Database Access:
+    Username: db_G8Vc0
+    Password: h3cyLGeT
+
+Your client folder is created at: /var/www/clients/qwerty11.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: 123@gmail.com
+Domain: qwe1.com
+Allocated IP: 127.0.0.24
+
+FTP Access:
+    Username: ftp_sMJkN
+    Password: JqFjMuEX
+
+Database Access:
+    Username: db_dxYf8
+    Password: cmtsrYPp
+
+Your client folder is created at: /var/www/clients/qwe1.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: 123@gmail.com
+Domain: qwe2.com
+Allocated IP: 127.0.0.25
+
+FTP Access:
+    Username: ftp_WsqKS
+    Password: aZTRr3DJ
+
+Database Access:
+    Username: db_W31h2
+    Password: 0HiLew8T
+
+Your client folder is created at: /var/www/clients/qwe2.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: 123@gmail.com
+Domain: qwe3.com
+Allocated IP: 127.0.0.26
+
+FTP Access:
+    Username: ftp_JewRx
+    Password: yaBaa62e
+
+Database Access:
+    Username: db_QxOBb
+    Password: Jqc8FdDk
+
+Your client folder is created at: /var/www/clients/qwe3.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: 123@gmail.com
+Domain: qwe4.com
+Allocated IP: 127.0.0.27
+
+FTP Access:
+    Username: ftp_GMekr
+    Password: 5RnFMG9V
+
+Database Access:
+    Username: db_R6zul
+    Password: 2g4NoQ6u
+
+Your client folder is created at: /var/www/clients/qwe4.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: 123@gmail.com
+Domain: qwe5.com
+Allocated IP: 127.0.0.28
+
+FTP Access:
+    Username: ftp_NCwmi
+    Password: DUxDBUVe
+
+Database Access:
+    Username: db_VARur
+    Password: dLAIRJ5d
+
+Your client folder is created at: /var/www/clients/qwe5.com
+
+Thank you for using our hosting center!
+
