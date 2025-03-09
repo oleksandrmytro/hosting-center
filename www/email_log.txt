@@ -1,0 +1,80 @@
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: 123123.com
+Allocated IP: 127.0.0.2
+
+FTP Access:
+    Username: ftp_oPBWu
+    Password: Yq9nImbK
+
+Database Access:
+    Username: db_Y83Yf
+    Password: MF7pVN5b
+
+Your client folder is created at: /var/www/clients/123123.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: asd@asd.com
+Domain: asd.com
+Allocated IP: 127.0.0.3
+
+FTP Access:
+    Username: ftp_6IvJK
+    Password: P6g6d8ox
+
+Database Access:
+    Username: db_1DYhl
+    Password: OGWUFvkf
+
+Your client folder is created at: /var/www/clients/asd.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa3.mitrio@gmail.com
+Domain: zxc.com
+Allocated IP: 127.0.0.4
+
+FTP Access:
+    Username: ftp_M3cFq
+    Password: dHa0Fvnd
+
+Database Access:
+    Username: db_puDzS
+    Password: hbqO0peq
+
+Your client folder is created at: /var/www/clients/zxc.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: aronov.phone@gmail.com
+Domain: qweqwe.com
+Allocated IP: 127.0.0.5
+
+FTP Access:
+    Username: ftp_NzzYC
+    Password: xqPn7Cic
+
+Database Access:
+    Username: db_zg83d
+    Password: SgfxMC4P
+
+Your client folder is created at: /var/www/clients/qweqwe.com
+
+Thank you for using our hosting center!
+

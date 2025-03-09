@@ -1,0 +1,11 @@
+FROM stilliard/pure-ftpd:hardened
+
+# Встановлюємо MySQL клієнт для діагностики
+RUN apt-get update && apt-get install -y default-mysql-client
+
+# Копіюємо та робимо виконуваним скрипт налаштування
+COPY setup-ftp.sh /setup-ftp.sh
+RUN chmod +x /setup-ftp.sh
+
+# Використовуємо наш скрипт як entrypoint
+CMD ["/setup-ftp.sh"]
