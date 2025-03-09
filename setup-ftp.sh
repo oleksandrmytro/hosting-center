@@ -1,5 +1,4 @@
 #!/bin/bash
-# filepath: c:\Users\sawam\source\repos\hosting-center\setup-ftp.sh
 
 # Функція для створення користувачів та оновлення бази користувачів
 create_ftp_users() {

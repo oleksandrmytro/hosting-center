@@ -80,7 +80,6 @@ try {
     // Генерация учетных данных для FTP и базы данных
     $ftp_username = "ftp_" . generateRandomString(5);
     $ftp_password = generateRandomString(8);
-    $ftp_password_hashed = md5($ftp_password);  // Вычисляем MD5-хэш
     $db_username  = "db_" . generateRandomString(5);
     $db_password  = generateRandomString(8);
     $db_name      = "db_" . generateRandomString(5);  // Генерируем уникальное имя базы данных
@@ -107,7 +106,7 @@ try {
         ':domain'        => $domain,
         ':allocated_ip'  => $allocated_ip,
         ':ftp_username'  => $ftp_username,
-        ':ftp_password'  => $ftp_password_hashed,  // используем хэш
+        ':ftp_password'  => $ftp_password,  // используем хэш
         ':home_dir'      => $home_dir,
         ':db_username'   => $db_username,
         ':db_password'   => $db_password,
