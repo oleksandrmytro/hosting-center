@@ -3,9 +3,21 @@ FROM stilliard/pure-ftpd:hardened
 # Встановлюємо MySQL клієнт для діагностики
 RUN apt-get update && apt-get install -y default-mysql-client
 
-# Копіюємо та робимо виконуваним скрипт налаштування
-COPY setup-ftp.sh /setup-ftp.sh
-RUN chmod +x /setup-ftp.sh
-
-# Використовуємо наш скрипт як entrypoint
-CMD ["/setup-ftp.sh"]
+# Використовуємо shell команду напряму
+CMD bash -c "\
+    while true; do \
+      echo 'Checking for new FTP users...'; \
+      mysql -h db -u mojafirma_user -ppassword mojafirma -e \"SELECT ftp_username, ftp_password, domain FROM users\" | while read -r username password domain; do \
+        if [ \"\$username\" != \"ftp_username\" ]; then \
+          pure-pw show \"\$username\" > /dev/null 2>&1; \
+          if [ \$? -ne 0 ]; then \
+            echo \"Creating FTP user: \$username for domain: \$domain\"; \
+            (echo \"\$password\"; echo \"\$password\") | pure-pw useradd \"\$username\" -u ftpuser -d \"/var/www/clients/\$domain\" -m; \
+          fi; \
+        fi; \
+      done; \
+      pure-pw mkdb /etc/pure-ftpd/pureftpd.pdb; \
+      echo 'FTP users update completed'; \
+      pure-ftpd -c 50 -C 10 -l puredb:/etc/pure-ftpd/pureftpd.pdb -E -j -R -P localhost -p 30000:30009 & \
+      sleep 10; \
+    done"
