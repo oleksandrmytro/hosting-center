@@ -80,33 +80,49 @@ try {
     // Генерация учетных данных для FTP и базы данных
     $ftp_username = "ftp_" . generateRandomString(5);
     $ftp_password = generateRandomString(8);
+    $ftp_password_hashed = md5($ftp_password);  // Вычисляем MD5-хэш
     $db_username  = "db_" . generateRandomString(5);
     $db_password  = generateRandomString(8);
+    $db_name      = "db_" . generateRandomString(5);  // Генерируем уникальное имя базы данных
+
+    // Определяем домашний каталог для клиента
+    $clientFolder = "/var/www/clients/" . $domain;
+    $home_dir = $clientFolder;  // Используем как домашний каталог
 
     // Вставляем нового пользователя с данными для FTP и базы данных
-    $stmt = $pdo->prepare("INSERT INTO users (email, domain, allocated_ip, ftp_username, ftp_password, db_username, db_password) 
-                           VALUES (:email, :domain, :allocated_ip, :ftp_username, :ftp_password, :db_username, :db_password)");
-    // Создаем пользователя базы данных
-    $pdo->exec("CREATE USER '$db_username'@'%' IDENTIFIED BY '$db_password'");
-    $pdo->exec("GRANT ALL PRIVILEGES ON *.* TO '$db_username'@'%' WITH GRANT OPTION");
+    $stmt = $pdo->prepare("INSERT INTO users (email, domain, allocated_ip, ftp_username, ftp_password, home_dir, db_username, db_password, db_name) 
+                        VALUES (:email, :domain, :allocated_ip, :ftp_username, :ftp_password, :home_dir, :db_username, :db_password, :db_name)");
 
+    // Создаем базу данных для клиента
+    $pdo->exec("CREATE DATABASE IF NOT EXISTS `$db_name`");
+
+    // Создаем пользователя базы данных и назначаем ему права только на эту базу
+    $pdo->exec("CREATE USER '$db_username'@'%' IDENTIFIED BY '$db_password'");
+    $pdo->exec("GRANT ALL PRIVILEGES ON `$db_name`.* TO '$db_username'@'%'");
+    $pdo->exec("FLUSH PRIVILEGES");
+
+    // Выполняем вставку записи о клиенте в таблицу, здесь для ftp_password передаем MD5-хэш
     $stmt->execute([
         ':email'         => $email,
         ':domain'        => $domain,
-        ':allocated_ip'  => $allocated_ip,  // Тепер це 127.0.0.X
+        ':allocated_ip'  => $allocated_ip,
         ':ftp_username'  => $ftp_username,
-        ':ftp_password'  => $ftp_password,
+        ':ftp_password'  => $ftp_password_hashed,  // используем хэш
+        ':home_dir'      => $home_dir,
         ':db_username'   => $db_username,
-        ':db_password'   => $db_password
+        ':db_password'   => $db_password,
+        ':db_name'       => $db_name
     ]);
 
-    // Создаем FTP-пользователя в контейнере pure-ftpd.
-    // Важно: убедитесь, что в FTP-контейнере существует базовый пользователь (например, ftpuser) или настройте команду под вашу конфигурацию.
-    $ftpCmd = "docker exec hosting-center-ftp pure-pw useradd {$ftp_username} -u ftpuser -d /var/www/clients/{$domain} -m";
-    exec($ftpCmd, $output1, $ret1);
-    // Обновляем базу данных FTP (пересобираем виртуальную базу)
-    $ftpCmd2 = "docker exec hosting-center-ftp pure-pw mkdb /etc/pure-ftpd/pureftpd.pdb";
-    exec($ftpCmd2, $output2, $ret2);
+
+
+    // // Создаем FTP-пользователя в контейнере pure-ftpd.
+    // // Важно: убедитесь, что в FTP-контейнере существует базовый пользователь (например, ftpuser) или настройте команду под вашу конфигурацию.
+    // $ftpCmd = "docker exec hosting-center-ftp pure-pw useradd {$ftp_username} -u ftpuser -d /var/www/clients/{$domain} -m";
+    // exec($ftpCmd, $output1, $ret1);
+    // // Обновляем базу данных FTP (пересобираем виртуальную базу)
+    // $ftpCmd2 = "docker exec hosting-center-ftp pure-pw mkdb /etc/pure-ftpd/pureftpd.pdb";
+    // exec($ftpCmd2, $output2, $ret2);
 
 
     // Создание отдельной папки для клиента
@@ -200,6 +216,7 @@ try {
             <p>Username: <span class=\"ip\">$ftp_username</span></p>
             <p>Password: <span class=\"ip\">$ftp_password</span></p>
             <p><b>Database Access:</b></p>
+            <p>Database name: <span class=\"ip\">$db_name</span></p>
             <p>Username: <span class=\"ip\">$db_username</span></p>
             <p>Password: <span class=\"ip\">$db_password</span></p>
         </div>
@@ -225,6 +242,7 @@ try {
     . "    Username: $ftp_username\n"
     . "    Password: $ftp_password\n\n"
     . "Database Access:\n"
+    . "    Database name: $db_name\n"
     . "    Username: $db_username\n"
     . "    Password: $db_password\n\n"
     . "Your client folder is created at: " . $clientFolder . "\n\n"
