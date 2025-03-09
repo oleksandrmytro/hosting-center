@@ -22,20 +22,19 @@ services:
       - APACHE_RUN_GROUP=www-data
 
   ftp:
-    image: stilliard/pure-ftpd
+    build:
+      context: .
+      dockerfile: Dockerfile.ftp
     container_name: hosting-center-ftp
-    restart: always
+    restart: "no"
     ports:
       - "21:21"
       - "30000-30009:30000-30009"
-    environment:
-      PUBLICHOST: "localhost"
-      FTP_USER_NAME: ftpuser            # фиксированные данные для базового подключения (используются, если динамическое создание не реализовано полностью)
-      FTP_USER_PASS: ftppassword
-      FTP_USER_HOME: /home/ftpuser
     volumes:
       - ./ftpdata:/home/ftpuser
-      - ./clients:/var/www/clients     # общий том с клиентскими данными
+      - ./clients:/var/www/clients
+    depends_on:
+      - db
 
   db:
     image: mariadb:10.5
