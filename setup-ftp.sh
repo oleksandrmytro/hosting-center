@@ -8,6 +8,13 @@ create_ftp_users() {
   mysql -h db -u mojafirma_user -ppassword mojafirma -e "SELECT ftp_username, ftp_password, domain FROM users" | while read -r username password domain; do
     # Пропускаємо заголовок результату запиту
     if [ "$username" != "ftp_username" ]; then
+      # Створюємо директорію для домену, якщо її немає
+      mkdir -p "/var/www/clients/$domain"
+      
+      # Встановлюємо правильного власника та права доступу
+      chown -R ftpuser:ftpuser "/var/www/clients/$domain"
+      chmod -R 755 "/var/www/clients/$domain"
+      
       # Перевіряємо, чи користувач вже існує
       pure-pw show "$username" > /dev/null 2>&1
       if [ $? -ne 0 ]; then

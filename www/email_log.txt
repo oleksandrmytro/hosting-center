@@ -78,3 +78,108 @@ Your client folder is created at: /var/www/clients/qweqwe.com
 
 Thank you for using our hosting center!
 
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: st69631@upce.cz
+Domain: 123123123.com
+Allocated IP: 127.0.0.7
+
+FTP Access:
+    Username: ftp_wDCEU
+    Password: RKT7pUbY
+
+Database Access:
+    Database name: db_XWfti
+    Username: db_8FynT
+    Password: phD1GGdp
+
+Your client folder is created at: /var/www/clients/123123123.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: asd@asd.com
+Domain: asdasdasd.com
+Allocated IP: 127.0.0.8
+
+FTP Access:
+    Username: ftp_M3kPA
+    Password: 87AJpl33
+
+Database Access:
+    Database name: db_ZIiRc
+    Username: db_YnF9o
+    Password: RX6kaDu4
+
+Your client folder is created at: /var/www/clients/asdasdasd.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: blablabla123.com
+Allocated IP: 127.0.0.9
+
+FTP Access:
+    Username: ftp_ANOor
+    Password: Wjg3eCuE
+
+Database Access:
+    Database name: db_iYmjR
+    Username: db_G8bmr
+    Password: mfvJhJVA
+
+Your client folder is created at: /var/www/clients/blablabla123.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: st69631@upce.cz
+Domain: dfsfsdf.com
+Allocated IP: 127.0.0.10
+
+FTP Access:
+    Username: ftp_QcvLc
+    Password: b4YwHzhX
+
+Database Access:
+    Database name: db_CXlNc
+    Username: db_0Um47
+    Password: tTeErC7Y
+
+Your client folder is created at: /var/www/clients/dfsfsdf.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa3.mitrio@gmail.com
+Domain: zxcvbczx.com
+Allocated IP: 127.0.0.11
+
+FTP Access:
+    Username: ftp_UdPxS
+    Password: ZFWQl036
+
+Database Access:
+    Database name: db_X5yZj
+    Username: db_WGxzv
+    Password: P1zADfmM
+
+Your client folder is created at: /var/www/clients/zxcvbczx.com
+
+Thank you for using our hosting center!
+
