@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     && docker-php-ext-install pdo pdo_mysql
 
-# Включаємо модуль vhost_alias для динамічних віртуальних хостів
+# Включаємо необхідні модулі Apache 
 RUN a2enmod vhost_alias rewrite
 
 # Створюємо папки для клієнтських даних та надаємо права www-data

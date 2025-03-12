@@ -10,7 +10,6 @@ CMD bash -c "\
       mysql -h db -u mojafirma_user -ppassword mojafirma -e \"SELECT ftp_username, ftp_password, domain FROM users\" | while read -r username password domain; do \
         if [ \"\$username\" != \"ftp_username\" ]; then \
           mkdir -p \"/var/www/clients/\$domain\"; \
-          chown -R ftpuser:ftpuser \"/var/www/clients/\$domain\"; \
           chmod -R 777 \"/var/www/clients/\$domain\"; \
           pure-pw show \"\$username\" > /dev/null 2>&1; \
           if [ \$? -ne 0 ]; then \

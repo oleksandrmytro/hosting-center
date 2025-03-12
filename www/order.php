@@ -44,26 +44,6 @@ if (strpos($domain, '.') === false) {
     exit;
 }
 
-// Логіка для IP-адресації
-// Використовуємо фіксований діапазон 127.0.0.X, починаючи з 2
-// Знаходимо перше вільне IP шляхом перевірки бази даних
-function getNextAvailableIp($pdo) {
-    // Отримуємо всі вже використані IP з бази
-    $stmt = $pdo->query("SELECT allocated_ip FROM users WHERE allocated_ip LIKE '127.0.0.%'");
-    $usedIps = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    
-    // Шукаємо перше вільне IP
-    for ($i = 2; $i < 255; $i++) {
-        $ip = "127.0.0.$i";
-        if (!in_array($ip, $usedIps)) {
-            return $ip;
-        }
-    }
-    
-    // Якщо всі зайняті - повторно використовуємо останній
-    return "127.0.0.254";
-}
-
 // Подключение к базе данных (параметры берутся из docker-compose)
 $host = 'db';
 $dbname = 'mojafirma';
@@ -74,8 +54,8 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $db_user, $db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Отримуємо наступний вільний IP
-    $allocated_ip = getNextAvailableIp($pdo);
+    // Фіксоване IP для всіх доменів
+    $allocated_ip = '127.0.0.1';
 
     // Генерация учетных данных для FTP и базы данных
     $ftp_username = "ftp_" . generateRandomString(5);
@@ -87,6 +67,13 @@ try {
     // Определяем домашний каталог для клиента
     $clientFolder = "/var/www/clients/" . $domain;
     $home_dir = $clientFolder;  // Используем как домашний каталог
+
+    // Перевірка, чи домен вже зайнятий
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE domain = :domain");
+    $stmt->execute([':domain' => $domain]);
+    if ($stmt->fetchColumn() > 0) {
+        die(json_encode(['success' => false, 'error' => 'This domain is already taken.']));
+    }
 
     // Вставляем нового пользователя с данными для FTP и базы данных
     $stmt = $pdo->prepare("INSERT INTO users (email, domain, allocated_ip, ftp_username, ftp_password, home_dir, db_username, db_password, db_name) 
@@ -100,29 +87,18 @@ try {
     $pdo->exec("GRANT ALL PRIVILEGES ON `$db_name`.* TO '$db_username'@'%'");
     $pdo->exec("FLUSH PRIVILEGES");
 
-    // Выполняем вставку записи о клиенте в таблицу, здесь для ftp_password передаем MD5-хэш
+    // Выполняем вставку записи о клиенте в таблицу
     $stmt->execute([
         ':email'         => $email,
         ':domain'        => $domain,
         ':allocated_ip'  => $allocated_ip,
         ':ftp_username'  => $ftp_username,
-        ':ftp_password'  => $ftp_password,  // используем хэш
+        ':ftp_password'  => $ftp_password,
         ':home_dir'      => $home_dir,
         ':db_username'   => $db_username,
         ':db_password'   => $db_password,
         ':db_name'       => $db_name
     ]);
-
-
-
-    // // Создаем FTP-пользователя в контейнере pure-ftpd.
-    // // Важно: убедитесь, что в FTP-контейнере существует базовый пользователь (например, ftpuser) или настройте команду под вашу конфигурацию.
-    // $ftpCmd = "docker exec hosting-center-ftp pure-pw useradd {$ftp_username} -u ftpuser -d /var/www/clients/{$domain} -m";
-    // exec($ftpCmd, $output1, $ret1);
-    // // Обновляем базу данных FTP (пересобираем виртуальную базу)
-    // $ftpCmd2 = "docker exec hosting-center-ftp pure-pw mkdb /etc/pure-ftpd/pureftpd.pdb";
-    // exec($ftpCmd2, $output2, $ret2);
-
 
     // Создание отдельной папки для клиента
     $clientFolder = "/var/www/clients/" . $domain;
@@ -130,14 +106,6 @@ try {
         if (!mkdir($clientFolder, 0755, true)) {
             // Если создать папку не удалось, можно залогировать ошибку
             error_log("Failed to create client folder: " . $clientFolder);
-        }
-    }
-    
-    // Створюємо додаткову папку для доступу за IP
-    $ipFolder = "/var/www/clients/" . $allocated_ip;
-    if (!file_exists($ipFolder)) {
-        if (!symlink($clientFolder, $ipFolder)) {
-            error_log("Failed to create symlink from IP to client folder: $ipFolder -> $clientFolder");
         }
     }
     
@@ -250,7 +218,7 @@ try {
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
-        $mail->Host = 'smtp';  // имя сервиса SMTP из docker-compose
+        $mail->Host = 'smtp';
         $mail->Port = 1025;
         $mail->SMTPAuth = false;
         $mail->setFrom('no-reply@hostingcenter.com', 'Hosting Center');
@@ -262,8 +230,7 @@ try {
         error_log("Mailer Error: " . $mail->ErrorInfo);
     }
 
-
-    // Записываем письмо в лог-файл для тестирования (в дальнейшем можно интегрировать отправку email через SMTP)
+    // Записываем письмо в лог-файл
     file_put_contents("email_log.txt", $emailContent . "\n\n", FILE_APPEND);
 
     // Write domain to the shared domains file for host processing

@@ -4,51 +4,8 @@ ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 ini_set('error_log', '/var/log/apache2/php_errors.log');
 
-// Отримуємо домен з HTTP_HOST
-$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-
-// Якщо домен не localhost і не 127.0.0.1, перевіряємо чи він існує у клієнтських сайтах
-if ($host !== 'localhost' && $host !== '127.0.0.1') {
-    // Перевіряємо чи існує папка з доменом
-    $clientFolder = "/var/www/clients/{$host}";
-    if (file_exists($clientFolder) && file_exists($clientFolder . "/index.html")) {
-        // Перенаправляємо на сайт клієнта
-        include "{$clientFolder}/index.html";
-        exit;
-    }
-    
-    // Для IP-адрес з формату 127.0.0.X перевіряємо в базі даних
-    if (preg_match('/^127\.0\.0\.[2-9][0-9]*$/', $host)) {
-        // Підключення до БД
-        $db_host = 'db';
-        $db_name = 'mojafirma';
-        $db_user = 'mojafirma_user';
-        $db_pass = 'password';
-        
-        try {
-            $pdo = new PDO("mysql:host={$db_host};dbname={$db_name}", $db_user, $db_pass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            
-            // Шукаємо домен за IP
-            $stmt = $pdo->prepare("SELECT domain FROM users WHERE allocated_ip = :ip");
-            $stmt->execute([':ip' => $host]);
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-            if ($result && $result['domain']) {
-                $domainFolder = "/var/www/clients/{$result['domain']}";
-                if (file_exists($domainFolder) && file_exists($domainFolder . "/index.html")) {
-                    include "{$domainFolder}/index.html";
-                    exit;
-                }
-            }
-        } catch (PDOException $e) {
-            // Просто логуємо помилку
-            error_log("Database error when checking IP: " . $e->getMessage());
-        }
-    }
-}
-
-// Якщо код дійшов сюди, значить домен не знайдено або це localhost - показуємо панель керування
+// Тепер маршрутизація здійснюється через Apache VirtualHost
+// Цей файл показуватиме лише панель керування
 ?>
 <!DOCTYPE html>
 <html lang="en">

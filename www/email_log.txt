@@ -183,3 +183,129 @@ Your client folder is created at: /var/www/clients/zxcvbczx.com
 
 Thank you for using our hosting center!
 
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: aronov.phone@gmail.com
+Domain: 322322.com
+Allocated IP: 127.0.0.12
+
+FTP Access:
+    Username: ftp_NaJaA
+    Password: JtESK2Lf
+
+Database Access:
+    Database name: db_S2JeX
+    Username: db_owZ91
+    Password: iP9BpMgW
+
+Your client folder is created at: /var/www/clients/322322.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: 123123hi.com
+Allocated IP: 127.0.0.13
+
+FTP Access:
+    Username: ftp_lHTlG
+    Password: VOQk58O4
+
+Database Access:
+    Database name: db_MEPrI
+    Username: db_i2yop
+    Password: wBKssiqO
+
+Your client folder is created at: /var/www/clients/123123hi.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: salamaleykumSaniok.com
+Allocated IP: 127.0.0.14
+
+FTP Access:
+    Username: ftp_yfnRM
+    Password: 6cCu7hL9
+
+Database Access:
+    Database name: db_KTfoI
+    Username: db_GVlTP
+    Password: dCXFspv7
+
+Your client folder is created at: /var/www/clients/salamaleykumSaniok.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: salamaleykumSaniok.com
+Allocated IP: 127.0.0.14
+
+FTP Access:
+    Username: ftp_6AcW1
+    Password: q6P9EsC6
+
+Database Access:
+    Database name: db_Z8FyC
+    Username: db_ywdec
+    Password: YATrtsBl
+
+Your client folder is created at: /var/www/clients/salamaleykumSaniok.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: 322hi.com
+Allocated IP: 127.0.0.1
+
+FTP Access:
+    Username: ftp_Ty6dh
+    Password: dYa66bxv
+
+Database Access:
+    Database name: db_wOlMR
+    Username: db_XMrUj
+    Password: m6Mps8Xi
+
+Your client folder is created at: /var/www/clients/322hi.com
+
+Thank you for using our hosting center!
+
+Hello!
+
+Your order has been processed. Below are the details for connecting to your resources:
+
+Email: sawa.mitrio@gmail.com
+Domain: 322dahi.com
+Allocated IP: 127.0.0.1
+
+FTP Access:
+    Username: ftp_AneBm
+    Password: Q6ppwlck
+
+Database Access:
+    Database name: db_ajUA7
+    Username: db_720Ia
+    Password: LqmK4rid
+
+Your client folder is created at: /var/www/clients/322dahi.com
+
+Thank you for using our hosting center!
+
