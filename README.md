@@ -1,4 +1,8 @@
-[Читати українською](README.uk.md) | [Читать на русском](README.ru.md)
+<p align="center">
+  <a href="README.md"><img src="https://img.shields.io/badge/language-English-blue.svg?style=for-the-badge"></a>
+  <a href="README.uk.md"><img src="https://img.shields.io/badge/language-Українська-yellow.svg?style=for-the-badge"></a>
+  <a href="README.ru.md"><img src="https://img.shields.io/badge/language-Русский-red.svg?style=for-the-badge"></a>
+</p>
 
 # 🚀 Hosting Center
 
@@ -15,6 +19,7 @@ A comprehensive hosting solution powered by Docker, featuring Apache, MariaDB, F
 - [Services](#services)
 - [Configuration](#configuration)
 - [Troubleshooting](#troubleshooting)
+- [License](#license)
 
 ## 🛠 Prerequisites
 
@@ -128,7 +133,7 @@ The project uses Docker Compose with the following services:
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 ⭐ Found this project helpful? Please consider giving it a star!
