@@ -14,12 +14,12 @@ A comprehensive hosting solution powered by Docker, featuring Apache, MariaDB, F
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 
 ## 📋 Table of Contents
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Services](#services)
-- [Configuration](#configuration)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Services](#-services)
+- [Configuration](#-configuration)
+- [Troubleshooting](#-troubleshooting)
+- [License](#-license)
 
 ## 🛠 Prerequisites
 
