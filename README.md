@@ -1,5 +1,6 @@
 <p align="center">
   <a href="README.md"><img src="https://img.shields.io/badge/lang-en-red.svg"></a>
+  <a href="README.cs.md"><img src="https://img.shields.io/badge/lang-cs-blue.svg"></a>
   <a href="README.uk.md"><img src="https://img.shields.io/badge/lang-ua-green.svg"></a>
   <a href="README.ru.md"><img src="https://img.shields.io/badge/lang-ru-yellow.svg"></a>
 </p>
